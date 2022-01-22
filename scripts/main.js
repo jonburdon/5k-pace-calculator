@@ -46,6 +46,7 @@
   function flattenNum(num) {
     return Math.ceil(num);
   }
+  // Round down
   function roundDownNum(num) {
     return Math.floor(num);
   }
