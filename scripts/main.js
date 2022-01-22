@@ -30,15 +30,21 @@
       hrsSecs = hrsSecs + hrsMinsToAdd + hrsSecsToAdd;
       console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd);
       numSecsInputHrs.value = flattenNum(hrsSecs);
-      targetPaceSecs.innerHTML = flattenNum(hrsSecs);
-      targetPaceMins.innerHTML = flattenNum(hrsSecs);
+
+      // Need to find opposite value or Math.ceil to round seconds DOWN and then convert the leftover part into seconds
+
+      targetPaceMins.innerHTML = (hrsSecs/5)/60;
+      targetPaceSecs.innerHTML = (hrsSecs/5)/60;
+
     }
   })()
+
+
   
   
   //Rounds up every time
   function flattenNum(num) {
-    return Math.ceil(num)
+    return Math.ceil(num);
   }
   function getMos(num) {
     return num * 12;
