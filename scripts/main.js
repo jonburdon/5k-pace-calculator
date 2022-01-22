@@ -29,7 +29,7 @@
       let hrsSecsToAdd = parseInt(numInputSecs.value);
       hrsSecs = hrsSecs + hrsMinsToAdd + hrsSecsToAdd;
       console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd);
-      numSecsInputHrs.value = flattenNum(hrsSecs);
+      numSecsInputHrs.value = roundDownNum(hrsSecs);
 
       // Need to find opposite value or Math.ceil to round seconds DOWN and then convert the leftover part into seconds
 
@@ -52,7 +52,7 @@
 
   function justSeconds(num) {
     let minutespart = Math.floor(num);
-    let secondspart = Math.round((num - minutespart)*60);
+    let secondspart = Math.floor((num - minutespart)*60);
     return secondspart;
   }
 
