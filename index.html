@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>5k Pace Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+	<script src="scripts/main.js"></script>
+
+
+<h1>Parkrun Pace Calculator</h1>
+<main>
+  
+  <p>  Enter your target time:</p>
+  <form id="num-form-hrs">
+    <label for="num-input-hrs">Hrs</label>
+    <input id="num-input-hrs" type="number" value=0 min=0 max=24>
+  &nbsp;&nbsp;
+    <label for="min-input-mins">Mins</label>
+    <input id="num-input-mins" type="number" value=0 min=15 max=60>
+  &nbsp;&nbsp;
+    <label for="min-input-secs">Secs</label>
+    <input id="num-input-secs" type="number" value=0 min=0 max=60>
+  &nbsp;&nbsp;
+    <label for="num-secs-hrs">Seconds</label>
+    <input id="num-secs-hrs" type="number" disabled="disabled" value=0>
+  </form>
+<br>
+You should run at this pace per km to reach your target:<br>
+  Minutes:<span id="target-pace-mins"></span><br>
+  Seconds:<span id="target-pace-secs"></span><br>
+<br>
+  
+</main>
+
+
+  </body>
+</html>
