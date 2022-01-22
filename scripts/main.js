@@ -33,8 +33,8 @@
 
       // Need to find opposite value or Math.ceil to round seconds DOWN and then convert the leftover part into seconds
 
-      targetPaceMins.innerHTML = (hrsSecs/5)/60;
-      targetPaceSecs.innerHTML = (hrsSecs/5)/60;
+      targetPaceMins.innerHTML = roundDownNum((hrsSecs/5)/60);
+      targetPaceSecs.innerHTML = justSeconds((hrsSecs/5)/60);
 
     }
   })()
@@ -46,6 +46,16 @@
   function flattenNum(num) {
     return Math.ceil(num);
   }
+  function roundDownNum(num) {
+    return Math.floor(num);
+  }
+
+  function justSeconds(num) {
+    let minutespart = Math.floor(num);
+    let secondspart = Math.round((num - minutespart)*60);
+    return secondspart;
+  }
+
   function getMos(num) {
     return num * 12;
   }
