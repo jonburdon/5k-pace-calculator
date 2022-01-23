@@ -12,6 +12,7 @@
     targetPaceSecs = document.getElementById('target-pace-secs'),
     targetPaceMins = document.getElementById('target-pace-mins'),
     unitsSelected = document.getElementById('units-display'),
+    unitsSelectedForPace = document.getElementById('units-display-pace'),
     distanceSelected = document.getElementById('distance-display');
     
    
@@ -33,11 +34,13 @@
       let hrsSecsToAdd = parseInt(numInputSecs.value);
       let distanceToRun = distanceInputKm.value;
       // Check Units
-      let unitsChosen = "km";
+      let unitsChosen = "km", paceUnitsChosen = "km";
       if (document.getElementById('units-input').checked) {
         unitsChosen = "Miles";
+        paceUnitsChosen = "Mile"
     } else {
         unitsChosen = "Km";
+        paceUnitsChosen = "Km";
     }
 
 
@@ -51,6 +54,7 @@
       targetPaceSecs.innerHTML = justSeconds((hrsSecs/5)/60);
       distanceSelected.innerHTML = distanceToRun;
       unitsSelected.innerHTML = unitsChosen;
+      unitsSelectedForPace.innerHTML = paceUnitsChosen;
     
 
     }
