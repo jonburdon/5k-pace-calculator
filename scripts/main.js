@@ -5,10 +5,14 @@
     let numInputHrs = document.getElementById('num-input-hrs'),
         numInputMins = document.getElementById('num-input-mins'),
         numInputSecs = document.getElementById('num-input-secs'),
+        distanceToRun = document.getElementById('distance-input'),
+        unitsPreference = document.getElementById('units-input'),
   // Output to this element
         numSecsInputHrs = document.getElementById('num-secs-hrs'),
     targetPaceSecs = document.getElementById('target-pace-secs'),
-    targetPaceMins = document.getElementById('target-pace-mins')    
+    targetPaceMins = document.getElementById('target-pace-mins'),
+    unitsSelected = document.getElementById('units-display'),
+    distanceSelected = document.getElementById('distance-display')    
         ;
     
    
@@ -18,7 +22,7 @@
     numInputHrs.addEventListener("change", updateHrsSecs);
     numInputMins.addEventListener("change", updateHrsSecs);
     numInputSecs.addEventListener("change", updateHrsSecs);
-  
+
     
     // Convert inputs to Seconds
     function updateHrsSecs(e) {
