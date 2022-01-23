@@ -50,9 +50,39 @@
         let th = roundDownNum(((splitTimes/3600)/distanceToRun)*(i+1));
         let tm = (roundDownNum((splitTimes/distanceToRun)/60))*(i+1);
         let ts = (justSeconds((splitTimes/distanceToRun)/60))*(i+1);
+
+        console.log ('time is', splitTimes);
+        if (ts > 59) {
+
+          //console.log('ts is over 60: ', ts, 'so tm which was ', tm);
+          //console.log('needs to have this added: ' , roundDownNum((ts/60)));
+          
+          //console.log('tm was: ', tm);
+          tm = tm+roundDownNum((ts/60));
+          //console.log('tm is now: ', tm);
+          //console.log('adjusting seconds... ', ts);
+          let secAdjust = ts-(roundDownNum(ts/60)*60);
+          //console.log('second adjustment is: ', secAdjust, 'wohoo');
+          ts = secAdjust;
+          //console.log('ts is now: ', ts);
+        }
+        if (tm > 59) {
+
+          console.log('WARNING: tm is over 60: ', tm, 'so th which was ', th);
+          console.log('needs to have this added: ' , roundDownNum((tm/60)));
+          console.log('th was: ', th);
+          th = roundDownNum((tm/60));
+          console.log('th is now: ', th);
+          console.log('adjust minutes');
+          console.log('th is ', th, "and tm is ", tm);
+          let minAdjust = th*60;
+          console.log('minAdjust is', minAdjust);
+          tm = tm-minAdjust;
+
+        }
+
         splittime.innerText = "Lap " + i + " Split: " + th + " h " + tm + " m " + ts + "s";
         document.getElementById("split-times-wrapper").appendChild(splittime);
-        splitTimes = splitTimes*(i+1);
       }
 
       if (document.getElementById('units-input').checked) {
