@@ -43,12 +43,16 @@
         }
 
       //Add New Split Times to wrapper
+      
       for (let i = 0; i < distanceToRun; i++) {
+        let splitTimes = hrsSecs;
         let splittime = document.createElement("p");
-        let tm = roundDownNum((hrsSecs/distanceToRun)/60);
-        let ts = justSeconds((hrsSecs/distanceToRun)/60);
-        splittime.innerText = "Mile " + i + " Split: " + tm + " m " + ts + "s";
+        let th = roundDownNum(((splitTimes/3600)/distanceToRun)*(i+1));
+        let tm = (roundDownNum((splitTimes/distanceToRun)/60))*(i+1);
+        let ts = (justSeconds((splitTimes/distanceToRun)/60))*(i+1);
+        splittime.innerText = "Lap " + i + " Split: " + th + " h " + tm + " m " + ts + "s";
         document.getElementById("split-times-wrapper").appendChild(splittime);
+        splitTimes = splitTimes*(i+1);
       }
 
       if (document.getElementById('units-input').checked) {
