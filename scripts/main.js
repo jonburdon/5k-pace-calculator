@@ -27,11 +27,11 @@
     // Convert inputs to Seconds
     function updateHrsSecs(e) {
       e.preventDefault()
-      let hrsMins = getMins(parseInt(numInputHrs.value)),
+      var hrsMins = getMins(parseInt(numInputHrs.value)),
           hrsMinsToAdd = getMins(parseInt(numInputMins.value)),
           hrsSecs = getSecs(hrsMins);
-      let hrsSecsToAdd = parseInt(numInputSecs.value);
-      let distanceToRun = distanceInputKm.value;
+      var hrsSecsToAdd = parseInt(numInputSecs.value);
+      var distanceToRun = distanceInputKm.value;
       hrsSecs = hrsSecs + hrsMinsToAdd + hrsSecsToAdd;
       // Check Units
       let unitsChosen = "km", paceUnitsChosen = "km";
@@ -45,7 +45,9 @@
       //Add New Split Times to wrapper
       for (let i = 0; i < distanceToRun; i++) {
         let splittime = document.createElement("p");
-        splittime.innerText = "Mile Split:";
+        let tm = roundDownNum((hrsSecs/distanceToRun)/60);
+        let ts = justSeconds((hrsSecs/distanceToRun)/60);
+        splittime.innerText = "Mile " + i + " Split: " + tm + " m " + ts + "s";
         document.getElementById("split-times-wrapper").appendChild(splittime);
       }
 
