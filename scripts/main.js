@@ -57,10 +57,47 @@
       for (let i = 0; i < distanceToRun; i++) {
         let splitTimes = hrsSecs;
         
+        
+
         let splittime = document.createElement("p");
         let th = roundDownNum(((splitTimes/3600)/distanceToRun)*(i+1));
         let tm = (roundDownNum((splitTimes/distanceToRun)/60))*(i+1);
         let ts = (justSeconds((splitTimes/distanceToRun)/60))*(i+1);
+
+
+        // Check for fraction of distance in final lap
+
+        if (i === roundDownNum(distanceToRun) ) {
+          console.log('cheesey');
+        }
+
+        if (i === roundDownNum(distanceToRun)) {
+          console.log('more cheesey');
+          //console.log('Final Loop!', 'checker is ', checker, 'and distance is', distanceToRun);
+          // console.log('distance is', distanceToRun);
+          // console.log('rounded distance is', roundDownNum(distanceToRun));
+          let amountLeftToRun = distanceToRun-roundDownNum(distanceToRun);
+            console.log('amount left is: ', amountLeftToRun);
+          // console.log('th is', th);
+          //  console.log('total secs is', hrsSecs);
+          console.log('leftover seconds are', hrsSecs/(roundDownNum(distanceToRun)));
+          let remainingSecs = hrsSecs/(roundDownNum(distanceToRun));
+          //console.log('remaining secs are now:',remainingSecs);
+          remainingSecs = remainingSecs*amountLeftToRun;
+        console.log('remaining secs are finally:',remainingSecs);
+
+          // Just add the value about to ts on the final loop and it should work
+
+        
+        th = roundDownNum(((splitTimes/3600)/distanceToRun)*(i));
+        tm = (roundDownNum((splitTimes/distanceToRun)/60))*(i);
+        ts = (justSeconds((splitTimes/distanceToRun)/60))*(i)+remainingSecs;
+        tm = roundDownNum(tm);
+        ts = roundDownNum(ts);
+        }
+
+        
+        
 
         //console.log ('time is', splitTimes);
         if (ts > 59) {
@@ -91,16 +128,8 @@
           tm = tm-minAdjust;
 
         }
-        let checker = i;
-        if (checker = distanceToRun) {
-          console.log('Final Loop!');
-          console.log('distance is', distanceToRun);
-          console.log('rounded distance is', roundDownNum(distanceToRun));
-          let amountLeftToRun = distanceToRun-roundDownNum(distanceToRun);
-          console.log('amount left is: ', amountLeftToRun);
-          console.log('th is', th)
-          
-        }
+        //if i = roundDownNum(distanceToRun) {console.log('eh?')}
+
         splittime.innerText = "Lap " + i + " Split: " + th + " h " + tm + " m " + ts + "s";
         document.getElementById("split-times-wrapper").appendChild(splittime);
       }
