@@ -5,8 +5,8 @@
     let numInputHrs = document.getElementById('num-input-hrs'),
         numInputMins = document.getElementById('num-input-mins'),
         numInputSecs = document.getElementById('num-input-secs'),
-        distanceToRun = document.getElementById('distance-input'),
-        unitsPreference = document.getElementById('units-input'),
+        distanceInputKm = document.getElementById('distance-input'),
+        unitsInput = document.getElementById('units-input'),
   // Output to this element
         numSecsInputHrs = document.getElementById('num-secs-hrs'),
     targetPaceSecs = document.getElementById('target-pace-secs'),
@@ -21,7 +21,7 @@
     numInputHrs.addEventListener("change", updateHrsSecs);
     numInputMins.addEventListener("change", updateHrsSecs);
     numInputSecs.addEventListener("change", updateHrsSecs);
-    distanceSelected.addEventListener("change", updateHrsSecs);
+    distanceInputKm.addEventListener("change", updateHrsSecs);
     
     // Convert inputs to Seconds
     function updateHrsSecs(e) {
@@ -30,7 +30,7 @@
           hrsMinsToAdd = getMins(parseInt(numInputMins.value)),
           hrsSecs = getSecs(hrsMins);
       let hrsSecsToAdd = parseInt(numInputSecs.value);
-      let distanceToRun = distanceSelected.value;
+      let distanceToRun = distanceInputKm.value;
 
       hrsSecs = hrsSecs + hrsMinsToAdd + hrsSecsToAdd;
       console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd, 'Distance: ', distanceToRun);
@@ -40,7 +40,7 @@
 
       targetPaceMins.innerHTML = roundDownNum((hrsSecs/5)/60);
       targetPaceSecs.innerHTML = justSeconds((hrsSecs/5)/60);
-      distanceDisplay.innerHTML = distanceToRun;
+      distanceSelected.innerHTML = distanceToRun;
 
     }
   })()
