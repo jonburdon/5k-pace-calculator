@@ -22,7 +22,8 @@
     numInputMins.addEventListener("change", updateHrsSecs);
     numInputSecs.addEventListener("change", updateHrsSecs);
     distanceInputKm.addEventListener("change", updateHrsSecs);
-    
+    unitsInput = addEventListener("change", updateHrsSecs);
+
     // Convert inputs to Seconds
     function updateHrsSecs(e) {
       e.preventDefault()
@@ -31,6 +32,14 @@
           hrsSecs = getSecs(hrsMins);
       let hrsSecsToAdd = parseInt(numInputSecs.value);
       let distanceToRun = distanceInputKm.value;
+      // Check Units
+      let unitsChosen = "km";
+      if (document.getElementById('units-input').checked) {
+        unitsChosen = "Miles";
+    } else {
+        unitsChosen = "Km";
+    }
+
 
       hrsSecs = hrsSecs + hrsMinsToAdd + hrsSecsToAdd;
       console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd, 'Distance: ', distanceToRun);
@@ -41,6 +50,8 @@
       targetPaceMins.innerHTML = roundDownNum((hrsSecs/5)/60);
       targetPaceSecs.innerHTML = justSeconds((hrsSecs/5)/60);
       distanceSelected.innerHTML = distanceToRun;
+      unitsSelected.innerHTML = unitsChosen;
+    
 
     }
   })()
