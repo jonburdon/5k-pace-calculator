@@ -41,7 +41,7 @@
         unitsChosen = "Miles";
         paceUnitsChosen = "Mile";
         timeForPace = timeForPace*1.609;
-        distanceToRun = distanceToRun/1.609;
+        
     } else {
         unitsChosen = "Km";
         paceUnitsChosen = "Km";
