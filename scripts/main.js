@@ -36,6 +36,16 @@
       // Check Units
       let unitsChosen = "km", paceUnitsChosen = "km";
 
+      if (document.getElementById('units-input').checked) {
+        unitsChosen = "Miles";
+        paceUnitsChosen = "Mile";
+        hrsSecs = hrsSecs*1.609;
+    } else {
+        unitsChosen = "Km";
+        paceUnitsChosen = "Km";
+    }
+
+
       // Clear Split Times
       let splitsparent = document.getElementById("split-times-wrapper")
         while (splitsparent.firstChild) {
@@ -46,12 +56,13 @@
       
       for (let i = 0; i < distanceToRun; i++) {
         let splitTimes = hrsSecs;
+        
         let splittime = document.createElement("p");
         let th = roundDownNum(((splitTimes/3600)/distanceToRun)*(i+1));
         let tm = (roundDownNum((splitTimes/distanceToRun)/60))*(i+1);
         let ts = (justSeconds((splitTimes/distanceToRun)/60))*(i+1);
 
-        console.log ('time is', splitTimes);
+        //console.log ('time is', splitTimes);
         if (ts > 59) {
 
           //console.log('ts is over 60: ', ts, 'so tm which was ', tm);
@@ -68,31 +79,33 @@
         }
         if (tm > 59) {
 
-          console.log('WARNING: tm is over 60: ', tm, 'so th which was ', th);
-          console.log('needs to have this added: ' , roundDownNum((tm/60)));
-          console.log('th was: ', th);
+          // console.log('WARNING: tm is over 60: ', tm, 'so th which was ', th);
+          // console.log('needs to have this added: ' , roundDownNum((tm/60)));
+          // console.log('th was: ', th);
           th = roundDownNum((tm/60));
-          console.log('th is now: ', th);
-          console.log('adjust minutes');
-          console.log('th is ', th, "and tm is ", tm);
+          // console.log('th is now: ', th);
+          // console.log('adjust minutes');
+          // console.log('th is ', th, "and tm is ", tm);
           let minAdjust = th*60;
-          console.log('minAdjust is', minAdjust);
+          // console.log('minAdjust is', minAdjust);
           tm = tm-minAdjust;
 
         }
-
+        let checker = i;
+        if (checker = distanceToRun) {
+          console.log('Final Loop!');
+          console.log('distance is', distanceToRun);
+          console.log('rounded distance is', roundDownNum(distanceToRun));
+          let amountLeftToRun = distanceToRun-roundDownNum(distanceToRun);
+          console.log('amount left is: ', amountLeftToRun);
+          console.log('th is', th)
+          
+        }
         splittime.innerText = "Lap " + i + " Split: " + th + " h " + tm + " m " + ts + "s";
         document.getElementById("split-times-wrapper").appendChild(splittime);
       }
 
-      if (document.getElementById('units-input').checked) {
-        unitsChosen = "Miles";
-        paceUnitsChosen = "Mile";
-        hrsSecs = hrsSecs*1.609;
-    } else {
-        unitsChosen = "Km";
-        paceUnitsChosen = "Km";
-    }
+      
 
       console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd, 'Distance: ', distanceToRun);
       numSecsInputHrs.value = roundDownNum(hrsSecs);
