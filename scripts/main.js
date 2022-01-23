@@ -41,6 +41,7 @@
         unitsChosen = "Miles";
         paceUnitsChosen = "Mile";
         timeForPace = timeForPace*1.609;
+        distanceToRun = distanceToRun/1.609;
     } else {
         unitsChosen = "Km";
         paceUnitsChosen = "Km";
@@ -54,7 +55,9 @@
         }
 
       //Add New Split Times to wrapper
-      
+ 
+
+
       for (let i = 0; i < distanceToRun; i++) {
         let splitTimes = hrsSecs;
         
