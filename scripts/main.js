@@ -12,8 +12,7 @@
     targetPaceSecs = document.getElementById('target-pace-secs'),
     targetPaceMins = document.getElementById('target-pace-mins'),
     unitsSelected = document.getElementById('units-display'),
-    distanceSelected = document.getElementById('distance-display')    
-        ;
+    distanceSelected = document.getElementById('distance-display');
     
    
     // Add event listeners for each number input 
@@ -22,7 +21,7 @@
     numInputHrs.addEventListener("change", updateHrsSecs);
     numInputMins.addEventListener("change", updateHrsSecs);
     numInputSecs.addEventListener("change", updateHrsSecs);
-
+    distanceSelected.addEventListener("change", updateHrsSecs);
     
     // Convert inputs to Seconds
     function updateHrsSecs(e) {
@@ -31,14 +30,17 @@
           hrsMinsToAdd = getMins(parseInt(numInputMins.value)),
           hrsSecs = getSecs(hrsMins);
       let hrsSecsToAdd = parseInt(numInputSecs.value);
+      let distanceToRun = distanceSelected.value;
+
       hrsSecs = hrsSecs + hrsMinsToAdd + hrsSecsToAdd;
-      console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd);
+      console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd, 'Distance: ', distanceToRun);
       numSecsInputHrs.value = roundDownNum(hrsSecs);
 
       // Need to find opposite value or Math.ceil to round seconds DOWN and then convert the leftover part into seconds
 
       targetPaceMins.innerHTML = roundDownNum((hrsSecs/5)/60);
       targetPaceSecs.innerHTML = justSeconds((hrsSecs/5)/60);
+      distanceDisplay.innerHTML = distanceToRun;
 
     }
   })()
