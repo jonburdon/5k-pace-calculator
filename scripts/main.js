@@ -45,14 +45,13 @@
         paceUnitsChosen = "Km";
     }
 
-      
       console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd, 'Distance: ', distanceToRun);
       numSecsInputHrs.value = roundDownNum(hrsSecs);
 
       // Need to find opposite value or Math.ceil to round seconds DOWN and then convert the leftover part into seconds
 
-      targetPaceMins.innerHTML = roundDownNum((hrsSecs/5)/60);
-      targetPaceSecs.innerHTML = justSeconds((hrsSecs/5)/60);
+      targetPaceMins.innerHTML = roundDownNum((hrsSecs/distanceToRun)/60);
+      targetPaceSecs.innerHTML = justSeconds((hrsSecs/distanceToRun)/60);
       distanceSelected.innerHTML = distanceToRun;
       unitsSelected.innerHTML = unitsChosen;
       unitsSelectedForPace.innerHTML = paceUnitsChosen;
