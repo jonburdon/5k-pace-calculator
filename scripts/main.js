@@ -35,6 +35,20 @@
       hrsSecs = hrsSecs + hrsMinsToAdd + hrsSecsToAdd;
       // Check Units
       let unitsChosen = "km", paceUnitsChosen = "km";
+
+      // Clear Split Times
+      let splitsparent = document.getElementById("split-times-wrapper")
+        while (splitsparent.firstChild) {
+            splitsparent.firstChild.remove()
+        }
+
+      //Add New Split Times to wrapper
+      for (let i = 0; i < distanceToRun; i++) {
+        let splittime = document.createElement("p");
+        splittime.innerText = "Mile Split:";
+        document.getElementById("split-times-wrapper").appendChild(splittime);
+      }
+
       if (document.getElementById('units-input').checked) {
         unitsChosen = "Miles";
         paceUnitsChosen = "Mile";
