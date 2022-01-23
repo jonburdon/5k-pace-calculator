@@ -33,18 +33,19 @@
           hrsSecs = getSecs(hrsMins);
       let hrsSecsToAdd = parseInt(numInputSecs.value);
       let distanceToRun = distanceInputKm.value;
+      hrsSecs = hrsSecs + hrsMinsToAdd + hrsSecsToAdd;
       // Check Units
       let unitsChosen = "km", paceUnitsChosen = "km";
       if (document.getElementById('units-input').checked) {
         unitsChosen = "Miles";
-        paceUnitsChosen = "Mile"
+        paceUnitsChosen = "Mile";
+        hrsSecs = hrsSecs*1.609;
     } else {
         unitsChosen = "Km";
         paceUnitsChosen = "Km";
     }
 
-
-      hrsSecs = hrsSecs + hrsMinsToAdd + hrsSecsToAdd;
+      
       console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd, 'Distance: ', distanceToRun);
       numSecsInputHrs.value = roundDownNum(hrsSecs);
 
