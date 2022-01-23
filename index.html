@@ -28,13 +28,13 @@
 <p>Distance selected: <span id="distance-display">5</span>km</p>
 <p>  Enter your target time:</p>
     <label for="num-input-hrs">Hrs</label>
-    <input id="num-input-hrs" type="number" value=0 min=0 max=5>
+    <input id="num-input-hrs" type="number" inputmode="numeric" pattern="[0-9]*" value=0 min=0 max=5>
   &nbsp;&nbsp;
     <label for="min-input-mins">Mins</label>
-    <input id="num-input-mins" type="number" inputmode="numeric" pattern="[0-9]*"/ value=0 min=0 max=59>
+    <input id="num-input-mins" type="number" inputmode="numeric" pattern="[0-9]*" value=0 min=0 max=59>
   &nbsp;&nbsp;
     <label for="min-input-secs">Secs</label>
-    <input id="num-input-secs" type="number" value=0 min=0 max=59>
+    <input id="num-input-secs" type="number" inputmode="numeric" pattern="[0-9]*" value=0 min=0 max=59>
   &nbsp;&nbsp;
     <label for="num-secs-hrs">Seconds</label>
     <input id="num-secs-hrs" type="number" disabled="disabled" value=0>

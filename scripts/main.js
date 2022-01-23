@@ -15,7 +15,6 @@
     unitsSelectedForPace = document.getElementById('units-display-pace'),
     distanceSelected = document.getElementById('distance-display');
     
-   
     // Add event listeners for each number input 
     // Assign appropriate reference function
     
@@ -47,22 +46,14 @@
 
       console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd, 'Distance: ', distanceToRun);
       numSecsInputHrs.value = roundDownNum(hrsSecs);
-
-      // Need to find opposite value or Math.ceil to round seconds DOWN and then convert the leftover part into seconds
-
       targetPaceMins.innerHTML = roundDownNum((hrsSecs/distanceToRun)/60);
       targetPaceSecs.innerHTML = justSeconds((hrsSecs/distanceToRun)/60);
       distanceSelected.innerHTML = distanceToRun;
       unitsSelected.innerHTML = unitsChosen;
       unitsSelectedForPace.innerHTML = paceUnitsChosen;
-    
-
     }
   })()
 
-
-  
-  
   //Rounds up every time
   function flattenNum(num) {
     return Math.ceil(num);
@@ -70,6 +61,7 @@
   // Round down
   function roundDownNum(num) {
     return Math.floor(num);
+//      return(num);
   }
 
   function justSeconds(num) {
