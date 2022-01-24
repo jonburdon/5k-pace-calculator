@@ -131,13 +131,21 @@
 
         // Display lap info
         let lap = i+1;
-        if (i === roundDownNum(numberOfLaps)) {
-          lap
-        }
-
-        splittime.innerText = unitsChosen + " " + lap + " Split: " + th + " h " + tm + " m " + ts + "s";
+        
+        splittime.innerText = paceUnitsChosen + " " + lap + " Split: " + th + " h " + tm + " m " + ts + "s";
         document.getElementById("split-times-wrapper").appendChild(splittime);
+
       }
+      // Change Text of last child in Splits
+      var lastSplit = document.getElementById("split-times-wrapper").lastChild.innerHTML;
+      var finalSplitMessage;
+      
+      console.log('Last Split: ', lastSplit);
+      var selectFinalSplit = document.getElementById('split-times-wrapper');
+      console.log('STUFF!!:' + selectFinalSplit.lastChild.innerText);
+      lastSplit = "Final "+lastSplit; 
+      selectFinalSplit.lastChild.innerText = lastSplit;
+      
 
       console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd, 'Distance: ', distanceToRun);
       numSecsInputHrs.value = roundDownNum(hrsSecs);
