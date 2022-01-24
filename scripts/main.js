@@ -60,6 +60,7 @@
       let numberOfLaps = distanceToRun; 
       if (document.getElementById('units-input').checked) {
         numberOfLaps = distanceInMiles;
+        console.log('miles are activated');
     }  
 
 
@@ -73,18 +74,16 @@
 
         // Check for fraction of distance in final lap
 
-        
         if (i === roundDownNum(numberOfLaps)) {
-          
           console.log('Final Loop!', 'and distance is', distanceToRun);
           // console.log('distance is', distanceToRun);
           // console.log('rounded distance is', roundDownNum(distanceToRun));
-          let amountLeftToRun = distanceToRun-roundDownNum(distanceToRun);
+          let amountLeftToRun = numberOfLaps-roundDownNum(numberOfLaps);
             console.log('amount left is: ', amountLeftToRun);
           // console.log('th is', th);
           //  console.log('total secs is', hrsSecs);
-          console.log('leftover seconds are', hrsSecs/(roundDownNum(distanceToRun)));
-          let remainingSecs = hrsSecs/(roundDownNum(distanceToRun));
+          console.log('leftover seconds are', hrsSecs/(roundDownNum(numberOfLaps)));
+          let remainingSecs = hrsSecs/(roundDownNum(numberOfLaps));
           //console.log('remaining secs are now:',remainingSecs);
           remainingSecs = remainingSecs*amountLeftToRun;
         console.log('remaining secs are finally:',remainingSecs);
@@ -132,7 +131,10 @@
 
         // Display lap info
         let lap = i+1;
-        
+        if (i === roundDownNum(numberOfLaps)) {
+          lap
+        }
+
         splittime.innerText = unitsChosen + " " + lap + " Split: " + th + " h " + tm + " m " + ts + "s";
         document.getElementById("split-times-wrapper").appendChild(splittime);
       }
