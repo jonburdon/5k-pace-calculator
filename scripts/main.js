@@ -33,7 +33,7 @@
       var hrsSecsToAdd = parseInt(numInputSecs.value);
       var distanceToRun = distanceInputKm.value;
       hrsSecs = hrsSecs + hrsMinsToAdd + hrsSecsToAdd;
-      let timeForPace = hrsSecs;
+      var timeForPace = hrsSecs;
       // Check Units
       let unitsChosen = "km", paceUnitsChosen = "km";
 
@@ -47,7 +47,6 @@
         paceUnitsChosen = "Km";
     }
 
-
       // Clear Split Times
       let splitsparent = document.getElementById("split-times-wrapper")
         while (splitsparent.firstChild) {
@@ -55,29 +54,29 @@
         }
 
       //Add New Split Times to wrapper
- 
+      
+      // Decide if using km laps or mile maps
+      let distanceInMiles = distanceToRun/1.609;
+      let numberOfLaps = distanceToRun; 
+      if (document.getElementById('units-input').checked) {
+        numberOfLaps = distanceInMiles;
+    }  
 
 
-      for (let i = 0; i < distanceToRun; i++) {
-        let splitTimes = hrsSecs;
-        
-        
-
+      for (let i = 0; i < numberOfLaps; i++) {
+        // let splitTimes = hrsSecs;
+        let splitTimes = timeForPace;
         let splittime = document.createElement("p");
         let th = roundDownNum(((splitTimes/3600)/distanceToRun)*(i+1));
         let tm = (roundDownNum((splitTimes/distanceToRun)/60))*(i+1);
         let ts = (justSeconds((splitTimes/distanceToRun)/60))*(i+1);
 
-
         // Check for fraction of distance in final lap
 
-        if (i === roundDownNum(distanceToRun) ) {
-          console.log('cheesey');
-        }
-
-        if (i === roundDownNum(distanceToRun)) {
-          console.log('more cheesey');
-          //console.log('Final Loop!', 'checker is ', checker, 'and distance is', distanceToRun);
+        
+        if (i === roundDownNum(numberOfLaps)) {
+          
+          console.log('Final Loop!', 'and distance is', distanceToRun);
           // console.log('distance is', distanceToRun);
           // console.log('rounded distance is', roundDownNum(distanceToRun));
           let amountLeftToRun = distanceToRun-roundDownNum(distanceToRun);
@@ -92,18 +91,14 @@
 
           // Just add the value about to ts on the final loop and it should work
 
-        
         th = roundDownNum(((splitTimes/3600)/distanceToRun)*(i));
         tm = (roundDownNum((splitTimes/distanceToRun)/60))*(i);
         ts = (justSeconds((splitTimes/distanceToRun)/60))*(i)+remainingSecs;
         tm = roundDownNum(tm);
         ts = roundDownNum(ts);
         }
-
         
-        
-
-        //console.log ('time is', splitTimes);
+        // Adjust seconds if they are over 60
         if (ts > 59) {
 
           //console.log('ts is over 60: ', ts, 'so tm which was ', tm);
@@ -118,6 +113,8 @@
           ts = secAdjust;
           //console.log('ts is now: ', ts);
         }
+
+        // Adjust minutes if they are over 60
         if (tm > 59) {
 
           // console.log('WARNING: tm is over 60: ', tm, 'so th which was ', th);
@@ -132,13 +129,13 @@
           tm = tm-minAdjust;
 
         }
-        //if i = roundDownNum(distanceToRun) {console.log('eh?')}
 
-        splittime.innerText = "Lap " + i + " Split: " + th + " h " + tm + " m " + ts + "s";
+        // Display lap info
+        let lap = i+1;
+        
+        splittime.innerText = unitsChosen + " " + lap + " Split: " + th + " h " + tm + " m " + ts + "s";
         document.getElementById("split-times-wrapper").appendChild(splittime);
       }
-
-      
 
       console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd, 'Distance: ', distanceToRun);
       numSecsInputHrs.value = roundDownNum(hrsSecs);
