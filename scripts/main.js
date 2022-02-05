@@ -60,9 +60,8 @@
       let numberOfLaps = distanceToRun; 
       if (document.getElementById('units-input').checked) {
         numberOfLaps = distanceInMiles;
-        console.log('miles are activated');
+        console.log('miles are activated', 'number of laps =', numberOfLaps);
     }  
-
 
       for (let i = 0; i < numberOfLaps; i++) {
         // let splitTimes = hrsSecs;
@@ -73,18 +72,28 @@
         let ts = (justSeconds((splitTimes/distanceToRun)/60))*(i+1);
 
         // Check for fraction of distance in final lap
-
+        console.log('i is', i, 'number of laps is', numberOfLaps);
         if (i === roundDownNum(numberOfLaps)) {
           let amountLeftToRun = numberOfLaps-roundDownNum(numberOfLaps);
+          console.log('Extra little bit detected! number of laps =', numberOfLaps);
           let remainingSecs = hrsSecs/(roundDownNum(numberOfLaps));
           remainingSecs = remainingSecs*amountLeftToRun;
+          console.log('Remaining Secs =', remainingSecs);
         th = roundDownNum(((splitTimes/3600)/distanceToRun)*(i));
         tm = (roundDownNum((splitTimes/distanceToRun)/60))*(i);
         // Use different units if Units are Miles
+
         if (document.getElementById('units-input').checked) {
         // Not working: This is not working correctly for 5km in miles.
+        console.log('splitTimes are ', splitTimes);
+        console.log('distance in miles is ', distanceInMiles);
+        console.log('split times / miles is' , (splitTimes/distanceInMiles)/60);
+        console.log('remaining seconda are', remainingSecs, 'AND i is', i);
+
+
           ts = (justSeconds((splitTimes/distanceInMiles)/60))*(i)+remainingSecs;
         }
+
         else {
           ts = (justSeconds((splitTimes/distanceToRun)/60))*(i)+remainingSecs;
         } 
