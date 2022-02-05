@@ -75,18 +75,9 @@
         // Check for fraction of distance in final lap
 
         if (i === roundDownNum(numberOfLaps)) {
-          console.log('Final Loop!', 'and distance is', distanceToRun);
-          // console.log('distance is', distanceToRun);
-          // console.log('rounded distance is', roundDownNum(distanceToRun));
           let amountLeftToRun = numberOfLaps-roundDownNum(numberOfLaps);
-            console.log('amount left is: ', amountLeftToRun);
-          // console.log('th is', th);
-          //  console.log('total secs is', hrsSecs);
-          console.log('leftover seconds are', hrsSecs/(roundDownNum(numberOfLaps)));
           let remainingSecs = hrsSecs/(roundDownNum(numberOfLaps));
-          //console.log('remaining secs are now:',remainingSecs);
           remainingSecs = remainingSecs*amountLeftToRun;
-         console.log('remaining secs are finally:',remainingSecs);
          
         // Just add the value about to ts on the final loop and it should work
 
@@ -107,32 +98,17 @@
         
         // Adjust seconds if they are over 60
         if (ts > 59) {
-
-          //console.log('ts is over 60: ', ts, 'so tm which was ', tm);
-          //console.log('needs to have this added: ' , roundDownNum((ts/60)));
-          
-          //console.log('tm was: ', tm);
           tm = tm+roundDownNum((ts/60));
-          //console.log('tm is now: ', tm);
-          //console.log('adjusting seconds... ', ts);
           let secAdjust = ts-(roundDownNum(ts/60)*60);
-          //console.log('second adjustment is: ', secAdjust, 'wohoo');
+
           ts = secAdjust;
-          //console.log('ts is now: ', ts);
         }
 
         // Adjust minutes if they are over 60
         if (tm > 59) {
-
-          // console.log('WARNING: tm is over 60: ', tm, 'so th which was ', th);
-          // console.log('needs to have this added: ' , roundDownNum((tm/60)));
-          // console.log('th was: ', th);
           th = roundDownNum((tm/60));
-          // console.log('th is now: ', th);
-          // console.log('adjust minutes');
-          // console.log('th is ', th, "and tm is ", tm);
           let minAdjust = th*60;
-          // console.log('minAdjust is', minAdjust);
+
           tm = tm-minAdjust;
 
         }
@@ -147,10 +123,7 @@
       // Change Text of last child in Splits
       var lastSplit = document.getElementById("split-times-wrapper").lastChild.innerHTML;
       var finalSplitMessage;
-      
-      console.log('Last Split: ', lastSplit);
       var selectFinalSplit = document.getElementById('split-times-wrapper');
-      console.log('STUFF!!:' + selectFinalSplit.lastChild.innerText);
       lastSplit = "Final "+lastSplit; 
       selectFinalSplit.lastChild.innerText = lastSplit;
       
