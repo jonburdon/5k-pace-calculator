@@ -40,7 +40,7 @@
       if (document.getElementById('units-input').checked) {
         unitsChosen = "Miles";
         paceUnitsChosen = "Mile";
-        timeForPace = timeForPace*1.609;
+        timeForPace = timeForPace*1.609344;
         
     } else {
         unitsChosen = "Km";
@@ -56,7 +56,7 @@
       //Add New Split Times to wrapper
       
       // Decide if using km laps or mile maps
-      let distanceInMiles = distanceToRun/1.609;
+      let distanceInMiles = distanceToRun/1.609344;
       let numberOfLaps = distanceToRun; 
       if (document.getElementById('units-input').checked) {
         numberOfLaps = distanceInMiles;
@@ -86,13 +86,21 @@
           let remainingSecs = hrsSecs/(roundDownNum(numberOfLaps));
           //console.log('remaining secs are now:',remainingSecs);
           remainingSecs = remainingSecs*amountLeftToRun;
-        console.log('remaining secs are finally:',remainingSecs);
-
-          // Just add the value about to ts on the final loop and it should work
+         console.log('remaining secs are finally:',remainingSecs);
+         
+        // Just add the value about to ts on the final loop and it should work
 
         th = roundDownNum(((splitTimes/3600)/distanceToRun)*(i));
         tm = (roundDownNum((splitTimes/distanceToRun)/60))*(i);
-        ts = (justSeconds((splitTimes/distanceToRun)/60))*(i)+remainingSecs;
+        // Use different units if Units are Miles
+        if (document.getElementById('units-input').checked) {
+          ts = (justSeconds((splitTimes/distanceInMiles)/60))*(i)+remainingSecs;
+        }
+        else {
+          ts = (justSeconds((splitTimes/distanceToRun)/60))*(i)+remainingSecs;
+        } 
+        
+
         tm = roundDownNum(tm);
         ts = roundDownNum(ts);
         }
@@ -155,7 +163,7 @@
       unitsSelected.innerHTML = unitsChosen;
       unitsSelectedForPace.innerHTML = paceUnitsChosen;
     }
-  })()
+  })();
 
   //Rounds up every time
   function flattenNum(num) {
