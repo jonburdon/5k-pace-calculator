@@ -78,20 +78,17 @@
           let amountLeftToRun = numberOfLaps-roundDownNum(numberOfLaps);
           let remainingSecs = hrsSecs/(roundDownNum(numberOfLaps));
           remainingSecs = remainingSecs*amountLeftToRun;
-         
-        // Just add the value about to ts on the final loop and it should work
-
         th = roundDownNum(((splitTimes/3600)/distanceToRun)*(i));
         tm = (roundDownNum((splitTimes/distanceToRun)/60))*(i);
         // Use different units if Units are Miles
         if (document.getElementById('units-input').checked) {
+        // Not working: This is not working correctly for 5km in miles.
           ts = (justSeconds((splitTimes/distanceInMiles)/60))*(i)+remainingSecs;
         }
         else {
           ts = (justSeconds((splitTimes/distanceToRun)/60))*(i)+remainingSecs;
         } 
         
-
         tm = roundDownNum(tm);
         ts = roundDownNum(ts);
         }
@@ -100,7 +97,6 @@
         if (ts > 59) {
           tm = tm+roundDownNum((ts/60));
           let secAdjust = ts-(roundDownNum(ts/60)*60);
-
           ts = secAdjust;
         }
 
