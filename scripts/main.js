@@ -26,9 +26,10 @@
 
 
 function findAllSplits() {
-  updateHrsSecs((distanceInputKm.value)*10, "split-times-wrapper");
+  updateHrsSecs(0-(distanceInputKm.value)*10, "split-times-wrapper-slower");
+  updateHrsSecs((distanceInputKm.value)*10, "split-times-wrapper-faster");
   updateHrsSecs(0, "split-times-wrapper");
-  updateHrsSecs(0-(distanceInputKm.value)*10, "split-times-wrapper");
+  
 
 }
 
