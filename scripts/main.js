@@ -1,5 +1,5 @@
 
-(function() {
+//(function() {
 
   // Make DOM elements available for JavaScript use
   let numInputHrs = document.getElementById('num-input-hrs'),
@@ -8,7 +8,7 @@
       distanceInputKm = document.getElementById('distance-input'),
       unitsInput = document.getElementById('units-input'),
 // Output to this element
-      numSecsInputHrs = document.getElementById('num-secs-hrs'),
+  numSecsInputHrs = document.getElementById('num-secs-hrs'),
   targetPaceSecs = document.getElementById('target-pace-secs'),
   targetPaceMins = document.getElementById('target-pace-mins'),
   unitsSelected = document.getElementById('units-display'),
@@ -70,12 +70,13 @@
       let th = roundDownNum(((splitTimes/3600)/distanceToRun)*(i+1));
       let tm = (roundDownNum((splitTimes/distanceToRun)/60))*(i+1);
       let ts = (justSeconds((splitTimes/distanceToRun)/60))*(i+1);
-
+      let extra = 0;
       // Check for fraction of distance in final lap
       console.log('i is', i, 'number of laps is', numberOfLaps);
       if (i === roundDownNum(numberOfLaps)) {
         let amountLeftToRun = numberOfLaps-roundDownNum(numberOfLaps);
         console.log('Extra little bit detected! number of laps =', numberOfLaps);
+        extra = 1;
         let remainingSecs = hrsSecs/(roundDownNum(numberOfLaps));
         remainingSecs = remainingSecs*amountLeftToRun;
         console.log('Remaining Secs =', remainingSecs);
@@ -83,20 +84,13 @@
       tm = (roundDownNum((splitTimes/distanceToRun)/60))*(i);
       // Use different units if Units are Miles
 
-      if (document.getElementById('units-input').checked) {
-      // Not working: This is not working correctly for 5km in miles.
-      console.log('splitTimes are ', splitTimes);
-      console.log('distance in miles is ', distanceInMiles);
-      console.log('split times / miles is' , (splitTimes/distanceInMiles)/60);
-      console.log('remaining seconda are', remainingSecs, 'AND i is', i);
+        if (document.getElementById('units-input').checked) {
 
-
-        ts = (justSeconds((splitTimes/distanceToRun)/60))*(i)+remainingSecs;
-      }
-
-      else {
-        ts = (justSeconds((splitTimes/distanceToRun)/60))*(i)+remainingSecs;
-      } 
+          ts = (justSeconds((splitTimes/distanceToRun)/60))*(i)+remainingSecs;
+        }
+        else {
+          ts = (justSeconds((splitTimes/distanceToRun)/60))*(i)+remainingSecs;
+        } 
       
       tm = roundDownNum(tm);
       ts = roundDownNum(ts);
@@ -120,17 +114,24 @@
 
       // Display lap info
       let lap = i+1;
-      
+      console.log('extra ' , extra);
+      if (extra === 0) {
       splittime.innerText = paceUnitsChosen + " " + lap + " Split: " + th + " h " + tm + " m " + ts + "s";
+      }
+      else {
+        splittime.innerText = "Finish Time: " + th + " h " + tm + " m " + ts + "s";
+
+      }
+
       document.getElementById("split-times-wrapper").appendChild(splittime);
 
     }
     // Change Text of last child in Splits
-    var lastSplit = document.getElementById("split-times-wrapper").lastChild.innerHTML;
-    var finalSplitMessage;
-    var selectFinalSplit = document.getElementById('split-times-wrapper');
-    lastSplit = "Final "+lastSplit; 
-    selectFinalSplit.lastChild.innerText = lastSplit;
+    //var lastSplit = document.getElementById("split-times-wrapper").lastChild.innerHTML;
+    //var finalSplitMessage;
+    //var selectFinalSplit = document.getElementById('split-times-wrapper');
+    //lastSplit = "Final "+lastSplit; 
+    //selectFinalSplit.lastChild.innerText = lastSplit;
     
 
     console.log('hrsMins', hrsMins, 'hrsSecs', hrsSecs, 'Extra Mins', hrsMinsToAdd, 'Extra Secs', hrsSecsToAdd, 'Distance: ', distanceToRun);
@@ -141,7 +142,7 @@
     unitsSelected.innerHTML = unitsChosen;
     unitsSelectedForPace.innerHTML = paceUnitsChosen;
   }
-})();
+//})();
 
 //Rounds up every time
 function flattenNum(num) {
