@@ -26,9 +26,9 @@
 
 
 function findAllSplits() {
-  updateHrsSecs((distanceInputKm.value)*10);
-  updateHrsSecs(0);
-  updateHrsSecs(0-(distanceInputKm.value)*10);
+  updateHrsSecs((distanceInputKm.value)*10, "split-times-wrapper");
+  updateHrsSecs(0, "split-times-wrapper");
+  updateHrsSecs(0-(distanceInputKm.value)*10, "split-times-wrapper");
 
 }
 
@@ -136,7 +136,7 @@ function findAllSplits() {
 
       }
 
-      document.getElementById("split-times-wrapper").appendChild(splittime);
+      document.getElementById(whichColumn).appendChild(splittime);
 
     }
     // Change Text of last child in Splits
