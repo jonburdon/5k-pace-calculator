@@ -18,21 +18,34 @@
   // Add event listeners for each number input 
   // Assign appropriate reference function
   
-  numInputHrs.addEventListener("change", updateHrsSecs);
-  numInputMins.addEventListener("change", updateHrsSecs);
-  numInputSecs.addEventListener("change", updateHrsSecs);
-  distanceInputKm.addEventListener("change", updateHrsSecs);
-  unitsInput = addEventListener("change", updateHrsSecs);
+  numInputHrs.addEventListener("change", findAllSplits);
+  numInputMins.addEventListener("change", findAllSplits);
+  numInputSecs.addEventListener("change", findAllSplits);
+  distanceInputKm.addEventListener("change", findAllSplits);
+  unitsInput = addEventListener("change", findAllSplits);
+
+
+function findAllSplits() {
+  updateHrsSecs((distanceInputKm.value)*10);
+  updateHrsSecs(0);
+  updateHrsSecs(0-(distanceInputKm.value)*10);
+
+}
+
 
   // Convert inputs to Seconds
-  function updateHrsSecs(e) {
-    e.preventDefault()
+  function updateHrsSecs(adjustment, whichColumn) {
+    
     var hrsMins = getMins(parseInt(numInputHrs.value)),
         hrsMinsToAdd = getMins(parseInt(numInputMins.value)),
         hrsSecs = getSecs(hrsMins);
     var hrsSecsToAdd = parseInt(numInputSecs.value);
     var distanceToRun = distanceInputKm.value;
+
     hrsSecs = hrsSecs + hrsMinsToAdd + hrsSecsToAdd;
+
+    hrsSecs = hrsSecs + adjustment;
+
     var timeForPace = hrsSecs;
     // Check Units
     let unitsChosen = "km", paceUnitsChosen = "km";
