@@ -64,16 +64,10 @@
     border-radius: 50%;
   }
 
-.splits-parent {}
-
-#split-times-wrapper {
-  background-color: yellow;
-  }
-
-#split-times-wrapper-slower {
-  background-color: blue;
-  }
-
-#split-times-wrapper-faster {
-background-color: red;
+.splits-parent {
+  display: flex;
 }
+
+#split-times-wrapper, #split-times-wrapper-slower, #split-times-wrapper-slower {
+  width: 33%
+  }
