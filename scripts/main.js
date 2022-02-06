@@ -62,7 +62,7 @@ function findAllSplits() {
   }
 
     // Clear Split Times
-    let splitsparent = document.getElementById("split-times-wrapper")
+    let splitsparent = document.getElementById(whichColumn)
       while (splitsparent.firstChild) {
           splitsparent.firstChild.remove()
       }

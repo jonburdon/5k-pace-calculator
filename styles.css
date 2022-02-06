@@ -63,3 +63,17 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
+.splits-parent {}
+
+#split-times-wrapper {
+  background-color: yellow;
+  }
+
+#split-times-wrapper-slower {
+  background-color: blue;
+  }
+
+#split-times-wrapper-faster {
+background-color: red;
+}
