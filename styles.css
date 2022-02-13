@@ -71,3 +71,31 @@
 #split-times-wrapper, #split-times-wrapper-slower, #split-times-wrapper-slower {
   width: 33%
   }
+
+
+/* Structure and Layout */
+.calculator-wrapper {
+  display:flex;
+}
+.calculator-inputs {
+  flex-basis: 50%;
+  min-width: 50vw;
+  background-color: darkgreen;
+  color: white;
+}
+
+.calculator-outputs {
+  flex-basis: 50%;
+  min-width: 50vw;
+  background-color: lightgrey;
+  background-image: url("https://raw.githubusercontent.com/jonburdon/5k-pace-calculator/4bf30ba1f11ce188fbcf0d6dfd7309936fed1e63/images/Race%20Pace%20Calculator.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}

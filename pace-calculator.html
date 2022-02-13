@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>5k Pace Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+
+
+
+<main>
+    <h1>Race Pace Calculator</h1>
+<p>Calculate your finish time for popular race distances based on your expected pace.</p>
+<section class="calculator-wrapper">
+    <div class="calculator-inputs">
+        <form id="num-form-hrs">
+
+            <label for="distance">Choose a distance:</label>
+            <select name="distance" id="distance-input">
+              <option value="5">5k</option>
+              <option value="10">10k</option>
+              <option value="21.09">Half Marathon</option>
+              <option value="42.195">Marathon</option>
+            </select>
+        <br><br>
+        <p>Distance selected: <span id="distance-display">5</span>km</p>
+        <p>  Enter your target time:</p>
+            <label for="num-input-hrs">Hrs</label>
+            <input id="num-input-hrs" type="number" inputmode="numeric" pattern="[0-9]*" value=0 min=0 max=5>
+          &nbsp;&nbsp;
+            <label for="min-input-mins">Mins</label>
+            <input id="num-input-mins" type="number" inputmode="numeric" pattern="[0-9]*" value=0 min=0 max=59>
+          &nbsp;&nbsp;
+            <label for="min-input-secs">Secs</label>
+            <input id="num-input-secs" type="number" inputmode="numeric" pattern="[0-9]*" value=0 min=0 max=59>
+          &nbsp;&nbsp;
+            <label for="num-secs-hrs">Seconds</label>
+            <input id="num-secs-hrs" type="number" disabled="disabled" value=0>
+         
+         <br><br>
+         <!-- Rounded switch -->
+         <p>Convert km to miles?</p>
+        <label class="switch">
+          <input id="units-input" type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <br><p>Units selected: <span id="units-display">Km</span></p>
+        <br>
+          </form>
+        <br>
+    </div>
+    <div class="calculator-outputs">
+        <p>Required <span id="units-display-pace">km</span> pace:</p>
+  <p><span id="target-pace-mins">?</span> m
+  <span id="target-pace-secs">?</span> s</p>
+<br>
+    </div>
+</section>  
+
+
+
+<section class = "splits-parent">
+  <div id="split-times-wrapper-slower"></div>
+  <div id="split-times-wrapper"></div>
+  <div id="split-times-wrapper-faster"></div>
+</section>
+
+
+
+</div>
+</main>
+
+<script src="scripts/main.js"></script>
+  </body>
+</html>
