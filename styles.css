@@ -64,13 +64,27 @@
     border-radius: 50%;
   }
 
-.splits-parent, .splits-titles {
+.splits-parent{
   display: flex;
+  justify-content: center;
 }
 
-#split-times-wrapper, #split-times-wrapper-slower, #split-times-wrapper-slower, .splits-titles p {
-  width: 33%;
+.splits-titles {
+  display: flex;
+  justify-content: center;
+}
+
+.splits-titles p {
+  width: 20%;
+}
+
+#split-times-wrapper, #split-times-wrapper-slower, #split-times-wrapper-faster {
+  width: 20%;
   }
+
+.title-centre {
+  text-align: center;
+}
 
 
 /* Structure and Layout */
