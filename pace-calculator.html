@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>5k Pace Calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
   </head>
   <body>
 
@@ -13,8 +18,12 @@
 
 
 <main>
-    <h1>Race Pace Calculator</h1>
-<p>Calculate your finish time for popular race distances based on your expected pace.</p>
+  <section class="dark-section">
+    <h1 class="digital">Race Pace Calculator</h1>
+    <p>Calculate your finish time for popular race distances based on your expected pace.</p>
+    <span class="copyright">Powered by RaceSource</span>
+  </section>
+    
 <section class="calculator-wrapper">
     <div class="calculator-inputs">
         <form class="calculator-inputs-form" id="num-form-hrs">
@@ -63,8 +72,7 @@
         <span>Distance: <span id="distance-display">5</span>km</span><br>
         <span>Your <span id="units-display-pace">km</span> pace:</span>
       </div>
-      
-  <p><span id="target-pace-mins">?</span> m
+  <p class="digital" style="margin-top: 20px;"><span  id="target-pace-mins">?</span> m
   <span id="target-pace-secs">?</span> s</p>
 <br>
     </div>
