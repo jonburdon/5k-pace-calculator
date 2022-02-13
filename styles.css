@@ -74,12 +74,11 @@
   justify-content: center;
 }
 
-.splits-titles p {
-  width: 20%;
-}
+
 
 #split-times-wrapper, #split-times-wrapper-slower, #split-times-wrapper-faster {
   width: 20%;
+
   }
 
 .title-centre {
@@ -135,5 +134,34 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+}
+
+.splits-titles p {
+width: 15%;
+margin: 20px;
+padding: 15px 10px;
+}
+
+#split-times-wrapper p {
+  background-color: black;
+  color: white;
+  margin: 20px;
+  padding: 15px 10px;
+}
+
+#split-times-wrapper-slower p, #split-times-wrapper-faster p {
+  background-color: lightgrey;
+  color: black;
+  margin: 20px;
+  padding: 15px 10px;
+}
+
+.splits-parent {
+  background-image: url("https://raw.githubusercontent.com/jonburdon/5k-pace-calculator/4bf30ba1f11ce188fbcf0d6dfd7309936fed1e63/images/Racehub_icon-green-25.svg");
+  background-size: 30vw;
+  background-repeat: repeat-y;
+  background-position: center center;
+  background-attachment: fixed;
   
 }

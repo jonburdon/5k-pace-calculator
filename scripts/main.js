@@ -133,7 +133,7 @@ function findAllSplits() {
       let lap = i+1;
       console.log('extra ' , extra);
       if (extra === 0) {
-      splittime.innerText = paceUnitsChosen + " " + lap + " Split: " + th + " h " + tm + " m " + ts + "s";
+      splittime.innerText = paceUnitsChosen + " " + lap + ": " + th + " h " + tm + " m " + ts + "s";
       }
       else {
         splittime.innerText = "Finish Time: " + th + " h " + tm + " m " + ts + "s";
