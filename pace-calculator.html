@@ -17,17 +17,17 @@
 <p>Calculate your finish time for popular race distances based on your expected pace.</p>
 <section class="calculator-wrapper">
     <div class="calculator-inputs">
-        <form id="num-form-hrs">
+        <form class="calculator-inputs-form" id="num-form-hrs">
 
-            <label for="distance">Choose a distance:</label>
+            <label for="distance" class="choose-distance">Choose a distance:</label>
             <select name="distance" id="distance-input">
               <option value="5">5k</option>
               <option value="10">10k</option>
+              <option value="16.0934">10 Miles</option>
               <option value="21.09">Half Marathon</option>
               <option value="42.195">Marathon</option>
             </select>
-        <br><br>
-        <p>Distance selected: <span id="distance-display">5</span>km</p>
+        <div>
         <p>  Enter your target time:</p>
             <label for="num-input-hrs">Hrs</label>
             <input id="num-input-hrs" type="number" inputmode="numeric" pattern="[0-9]*" value=0 min=0 max=5>
@@ -38,23 +38,32 @@
             <label for="min-input-secs">Secs</label>
             <input id="num-input-secs" type="number" inputmode="numeric" pattern="[0-9]*" value=0 min=0 max=59>
           &nbsp;&nbsp;
-            <label for="num-secs-hrs">Seconds</label>
+           
             <input id="num-secs-hrs" type="number" disabled="disabled" value=0>
+          </div>
          
-         <br><br>
          <!-- Rounded switch -->
-         <p>Convert km to miles?</p>
-        <label class="switch">
-          <input id="units-input" type="checkbox">
-          <span class="slider round"></span>
-        </label>
-        <br><p>Units selected: <span id="units-display">Km</span></p>
-        <br>
+         
+
+         <div class="units-wrapper">
+           <p>km</p>
+          <label class="switch">
+            <input id="units-input" type="checkbox">
+            <span class="slider round"></span>
+          </label>
+          <p>Miles</p>
+         </div>
+         <span id="units-display"></span>
+ 
           </form>
         <br>
     </div>
     <div class="calculator-outputs">
-        <p>Required <span id="units-display-pace">km</span> pace:</p>
+      <div>
+        <span>Distance: <span id="distance-display">5</span>km</span><br>
+        <span>Your <span id="units-display-pace">km</span> pace:</span>
+      </div>
+      
   <p><span id="target-pace-mins">?</span> m
   <span id="target-pace-secs">?</span> s</p>
 <br>
@@ -62,10 +71,17 @@
 </section>  
 
 
-
+<section>
+  <h3>Your Splits per <span id="title-1">km</span></h3>
+  <div class="splits-titles">
+    <p>10 seconds slower</p>
+    <p>Target pace</p>
+    <p>10 faster slower</p>
+  </div>
+</section>
 <section class = "splits-parent">
   <div id="split-times-wrapper-slower"></div>
-  <div id="split-times-wrapper"></div>
+  <div id="split-times-wrapper">Enter a time to see your splits</div>
   <div id="split-times-wrapper-faster"></div>
 </section>
 

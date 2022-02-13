@@ -13,7 +13,8 @@
   targetPaceMins = document.getElementById('target-pace-mins'),
   unitsSelected = document.getElementById('units-display'),
   unitsSelectedForPace = document.getElementById('units-display-pace'),
-  distanceSelected = document.getElementById('distance-display');
+  distanceSelected = document.getElementById('distance-display'),
+  title1 = document.getElementById('title-1');
   
   // Add event listeners for each number input 
   // Assign appropriate reference function
@@ -29,8 +30,6 @@ function findAllSplits() {
   updateHrsSecs(0-(distanceInputKm.value)*10, "split-times-wrapper-slower");
   updateHrsSecs((distanceInputKm.value)*10, "split-times-wrapper-faster");
   updateHrsSecs(0, "split-times-wrapper");
-  
-
 }
 
 
@@ -55,10 +54,14 @@ function findAllSplits() {
       unitsChosen = "Miles";
       paceUnitsChosen = "Mile";
       timeForPace = timeForPace*1.609344;
+      title1.innerHTML=paceUnitsChosen;
+
       
   } else {
       unitsChosen = "Km";
       paceUnitsChosen = "Km";
+      title1.innerHTML=paceUnitsChosen;
+  
   }
 
     // Clear Split Times
