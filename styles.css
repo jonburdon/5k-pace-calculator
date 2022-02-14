@@ -211,5 +211,11 @@ padding: 15px 10px;
     min-height: 50vh;
 
   }
-
+  .splits-titles p {
+    width: 33%;
+  }
+  #split-times-wrapper, #split-times-wrapper-slower, #split-times-wrapper-faster {
+    width: 33%;
+  
+    }
 }
