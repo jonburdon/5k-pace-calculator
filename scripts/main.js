@@ -1,6 +1,3 @@
-
-//(function() {
-
   // Make DOM elements available for JavaScript use
   let numInputHrs = document.getElementById('num-input-hrs'),
       numInputMins = document.getElementById('num-input-mins'),
@@ -25,13 +22,21 @@
   distanceInputKm.addEventListener("change", findAllSplits);
   unitsInput = addEventListener("change", findAllSplits);
 
-
+//  let distanceInMiles = distanceToRun/1.609344;
 function findAllSplits() {
-  updateHrsSecs(0-(distanceInputKm.value)*10, "split-times-wrapper-slower");
-  updateHrsSecs((distanceInputKm.value)*10, "split-times-wrapper-faster");
+
+  if (document.getElementById('units-input').checked) {
+    updateHrsSecs((0-(distanceInputKm.value)*10)/1.609344, "split-times-wrapper-slower");
+    updateHrsSecs(((distanceInputKm.value)*10)/1.609344, "split-times-wrapper-faster");
+
+  }
+  else{
+    updateHrsSecs(0-(distanceInputKm.value)*10, "split-times-wrapper-slower");
+    updateHrsSecs((distanceInputKm.value)*10, "split-times-wrapper-faster");
+  }
+
   updateHrsSecs(0, "split-times-wrapper");
 }
-
 
   // Convert inputs to Seconds
   function updateHrsSecs(adjustment, whichColumn) {
