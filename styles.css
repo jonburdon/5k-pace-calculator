@@ -135,12 +135,9 @@ select, input {
   display: flex;
 }
 .calculator-inputs {
-  padding: 40px;
   width: 50vw;
   background-color: darkgreen;
   color: white;
-  
-  flex-basis: 50%;
 }
 
 .calculator-inputs-form {
@@ -153,7 +150,6 @@ select, input {
 }
 
 .calculator-outputs {
-  flex-basis: 50%;
   width: 50vw;
   background-color: lightgrey;
   background-image: url("https://raw.githubusercontent.com/jonburdon/5k-pace-calculator/4bf30ba1f11ce188fbcf0d6dfd7309936fed1e63/images/Race%20Pace%20Calculator.svg");
@@ -195,6 +191,16 @@ padding: 15px 10px;
   background-position: center center;
   background-attachment: fixed;
   
+}
+
+@media only screen and (min-width: 769px) {
+  .calculator-inputs, .calculator-outputs {
+    flex-basis: 50%;
+    padding: 40px;
+  }
+  .calculator-inputs {
+    padding: 40px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
