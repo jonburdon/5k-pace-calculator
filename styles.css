@@ -10,6 +10,14 @@ select, input {
   font-family: 'Orbitron', sans-serif;
   font-size: 2.2rem;
 }
+.digital-sm {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+}
+.digital-num {
+  margin-top: 20px;
+}
+
 
 .dark-section {
   background-color: black;
@@ -224,4 +232,20 @@ padding: 15px 10px;
     width: 33%;
   
     }
+
+    .splits-titles p, #split-times-wrapper p, #split-times-wrapper-slower p, #split-times-wrapper-faster p {
+      margin: 10px;
+      padding: 5px;
+  }
+  .full-width {
+    width: 100vw;
+  }
+  .dark-section {
+    padding: 0px;
+  }
+  .dark-section h1, .dark-section p, .dark-section span, .calculator-inputs-form {
+    padding: 10px;
+  }
+
+
 }
