@@ -4,7 +4,7 @@ Running Pace Calculator for Athletes
 Purpose:
 Pace calculator for runners to rapidly find their target pace at the start line of a race.
 
-## Live link: https://jonburdon.github.io/5k-pace-calculator/
+## Live link: [https://jonburdon.github.io/running-pace-calculator/](https://jonburdon.github.io/running-pace-calculator/pace-calculator.html)
 
 Possible roadmap:
 
